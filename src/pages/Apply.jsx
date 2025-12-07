@@ -414,7 +414,7 @@ function Apply() {
                   <div className="animate-slide-up" style={{
                 animationDelay: '0.7s'
               }}>
-                    <Input label="Country" required value={formData.country} onChange={e => setFormData({
+                    <Input label="County" required value={formData.country} onChange={e => setFormData({
                   ...formData,
                   country: e.target.value
                 })} />
@@ -424,22 +424,14 @@ function Apply() {
               {/* Step 2: Right to Work & Employment History */}
               {currentStep === 2 && <div className="space-y-6">
                   <h2 className="text-2xl font-bold text-gray-text mb-6 animate-fade-in">
-                    Right to Work & Employment History
+                    Right to Work 
+                    {/* & Employment History */}
                   </h2>
-
-                  <div className="bg-primary/5 border-2 border-primary/20 rounded-xl p-6 animate-slide-up" style={{
-                animationDelay: '0.1s'
-              }}>
-                    <Checkbox label="By submitting this application, I declare that I have the right to live and work in the UK." required checked={formData.rightToWork} onChange={e => setFormData({
-                  ...formData,
-                  rightToWork: e.target.checked
-                })} />
-                  </div>
 
                   <div className="animate-slide-up" style={{
                 animationDelay: '0.15s'
               }}>
-                    <Select label="Have you ever previously worked for Royal Mail?" options={yesNoOptions} required value={formData.previouslyWorkedRoyalMail} onChange={e => setFormData({
+                    <Select label="Have you ever previously worked for Verqin ltd?" options={yesNoOptions} required value={formData.previouslyWorkedRoyalMail} onChange={e => setFormData({
                   ...formData,
                   previouslyWorkedRoyalMail: e.target.value
                 })} />
@@ -448,7 +440,7 @@ function Apply() {
                   <div className="animate-slide-up" style={{
                 animationDelay: '0.2s'
               }}>
-                    <Select label="Do you currently work directly for Royal Mail or any companies under the Royal Mail Group?" options={yesNoOptions} required value={formData.currentlyWorkRoyalMail} onChange={e => setFormData({
+                    <Select label="Do you currently work directly for Verqin ltd or any companies under the Verqin ltd?" options={yesNoOptions} required value={formData.currentlyWorkRoyalMail} onChange={e => setFormData({
                   ...formData,
                   currentlyWorkRoyalMail: e.target.value
                 })} />
@@ -457,29 +449,31 @@ function Apply() {
                   <div className="animate-slide-up" style={{
                 animationDelay: '0.25s'
               }}>
-                    <Select label="Are you currently receiving a Royal Mail Enhanced Pension?" options={yesNoOptions} required value={formData.royalMailPension} onChange={e => setFormData({
+                    <Select label="Are you currently receiving a Verqin ltd Enhanced Pension?" options={yesNoOptions} required value={formData.royalMailPension} onChange={e => setFormData({
                   ...formData,
                   royalMailPension: e.target.value
                 })} />
                   </div>
 
-                  <div className="animate-slide-up" style={{
+                  
+
+                  {/* <div className="animate-slide-up" style={{
                 animationDelay: '0.3s'
               }}>
                     <Select label="Have you previously worked for Angard Staffing?" options={yesNoOptions} required value={formData.previouslyWorkedAngard} onChange={e => setFormData({
                   ...formData,
                   previouslyWorkedAngard: e.target.value
                 })} />
-                  </div>
+                  </div> */}
 
-                  <div className="animate-slide-up" style={{
+                  {/* <div className="animate-slide-up" style={{
                 animationDelay: '0.35s'
               }}>
-                    <Select label="Are you currently undertaking any work with the Royal Mail Group through another employment agency?" options={yesNoOptions} required value={formData.currentlyWorkingAgency} onChange={e => setFormData({
+                    <Select label="Are you currently undertaking any work with the Verqin ltd through another employment agency?" options={yesNoOptions} required value={formData.currentlyWorkingAgency} onChange={e => setFormData({
                   ...formData,
                   currentlyWorkingAgency: e.target.value
                 })} />
-                  </div>
+                  </div> */}
 
                   <div className="animate-slide-up" style={{
                 animationDelay: '0.4s'
@@ -490,9 +484,69 @@ function Apply() {
                 })} />
                   </div>
                 </div>}
+              {currentStep === 3 && <div className="space-y-6">
+                  <h2 className="text-2xl font-bold text-gray-text mb-6 animate-fade-in">
+                    Employment History
+                  </h2>
+
+                  <div className="animate-slide-up" style={{
+                animationDelay: '0.1s'
+              }}>
+                    <Input label="Current Job Title"  value={formData.currentJobTitle} onChange={e => setFormData({
+                  ...formData,
+                  currentJobTitle: e.target.value
+                })} />
+                  </div>
+
+                  <div className="animate-slide-up" style={{
+                animationDelay: '0.15s'
+              }}>
+                    <Input label="Current Employer"  value={formData.currentEmployer} onChange={e => setFormData({
+                  ...formData,
+                  currentEmployer: e.target.value
+                })} />
+                  </div>
+
+                  <div className="animate-slide-up" style={{
+                animationDelay: '0.2s'
+              }}>
+                    <Select label="Employment Type" options={employmentTypeOptions} required value={formData.employmentType} onChange={e => setFormData({
+                  ...formData,
+                  employmentType: e.target.value
+                })} />
+                  </div>
+
+                  <div className="animate-slide-up" style={{
+                animationDelay: '0.25s'
+              }}>
+                    <Input label="Notice Period" required helperText="e.g., 2 weeks, 1 month, Immediate" value={formData.noticePeriod} onChange={e => setFormData({
+                  ...formData,
+                  noticePeriod: e.target.value
+                })} />
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="animate-slide-up" style={{
+                  animationDelay: '0.3s'
+                }}>
+                      <Input label="Current Salary" required helperText="Annual or hourly rate" value={formData.currentSalary} onChange={e => setFormData({
+                    ...formData,
+                    currentSalary: e.target.value
+                  })} />
+                    </div>
+                    <div className="animate-slide-up" style={{
+                  animationDelay: '0.35s'
+                }}>
+                      <Input label="Expected Salary" required helperText="Your salary expectations" value={formData.expectedSalary} onChange={e => setFormData({
+                    ...formData,
+                    expectedSalary: e.target.value
+                  })} />
+                    </div>
+                  </div>
+                </div>}
 
               {/* Step 3: Employment History */}
-              {currentStep === 3 && <div className="space-y-6">
+              {currentStep === 4 && <div className="space-y-6">
                   <h2 className="text-2xl font-bold text-gray-text mb-6 animate-fade-in">
                     Employment History
                   </h2>
@@ -586,7 +640,7 @@ function Apply() {
                 </div>}
 
               {/* Step 4: References */}
-              {currentStep === 4 && <div className="space-y-6">
+              {currentStep === 5 && <div className="space-y-6">
                   <h2 className="text-2xl font-bold text-gray-text mb-6 animate-fade-in">
                     References
                   </h2>
@@ -660,67 +714,7 @@ function Apply() {
                   </div>
                 </div>}
 
-              {/* Step 5: Employment Details */}
-              {currentStep === 5 && <div className="space-y-6">
-                  <h2 className="text-2xl font-bold text-gray-text mb-6 animate-fade-in">
-                    Employment Details
-                  </h2>
 
-                  <div className="animate-slide-up" style={{
-                animationDelay: '0.1s'
-              }}>
-                    <Input label="Current Job Title" required value={formData.currentJobTitle} onChange={e => setFormData({
-                  ...formData,
-                  currentJobTitle: e.target.value
-                })} />
-                  </div>
-
-                  <div className="animate-slide-up" style={{
-                animationDelay: '0.15s'
-              }}>
-                    <Input label="Current Employer" required value={formData.currentEmployer} onChange={e => setFormData({
-                  ...formData,
-                  currentEmployer: e.target.value
-                })} />
-                  </div>
-
-                  <div className="animate-slide-up" style={{
-                animationDelay: '0.2s'
-              }}>
-                    <Select label="Employment Type" options={employmentTypeOptions} required value={formData.employmentType} onChange={e => setFormData({
-                  ...formData,
-                  employmentType: e.target.value
-                })} />
-                  </div>
-
-                  <div className="animate-slide-up" style={{
-                animationDelay: '0.25s'
-              }}>
-                    <Input label="Notice Period" required helperText="e.g., 2 weeks, 1 month, Immediate" value={formData.noticePeriod} onChange={e => setFormData({
-                  ...formData,
-                  noticePeriod: e.target.value
-                })} />
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="animate-slide-up" style={{
-                  animationDelay: '0.3s'
-                }}>
-                      <Input label="Current Salary" required helperText="Annual or hourly rate" value={formData.currentSalary} onChange={e => setFormData({
-                    ...formData,
-                    currentSalary: e.target.value
-                  })} />
-                    </div>
-                    <div className="animate-slide-up" style={{
-                  animationDelay: '0.35s'
-                }}>
-                      <Input label="Expected Salary" required helperText="Your salary expectations" value={formData.expectedSalary} onChange={e => setFormData({
-                    ...formData,
-                    expectedSalary: e.target.value
-                  })} />
-                    </div>
-                  </div>
-                </div>}
 
               {/* Step 6: Work Preferences */}
               {currentStep === 6 && <div className="space-y-6">
@@ -740,7 +734,7 @@ function Apply() {
                   <div className="animate-slide-up" style={{
                 animationDelay: '0.15s'
               }}>
-                    <Input label="Preferred Work Location(s)" required helperText="e.g., London, Manchester, Remote" value={formData.preferredLocations} onChange={e => setFormData({
+                    <Input label="Preferred Work Counties(s)" required helperText="e.g., London, Manchester, Remote" value={formData.preferredLocations} onChange={e => setFormData({
                   ...formData,
                   preferredLocations: e.target.value
                 })} />
@@ -990,6 +984,7 @@ function Apply() {
                   <div className="bg-gray-bg border-2 border-gray-panel rounded-xl p-6 space-y-4 animate-slide-up" style={{
                 animationDelay: '0.1s'
               }}>
+               
                     <Checkbox label={<span>
                           I consent to Verqin Ltd processing my personal data in
                           accordance with the{' '}
@@ -1009,6 +1004,14 @@ function Apply() {
                     <Checkbox label="I confirm that all information provided in this application is correct and complete to the best of my knowledge, and I have the right to work in the UK" required checked={formData.confirmCorrect} onChange={e => setFormData({
                   ...formData,
                   confirmCorrect: e.target.checked
+                })} />
+                  </div>
+                   <div className="bg-primary/5 border-2 border-primary/20 rounded-xl p-6 animate-slide-up" style={{
+                animationDelay: '0.1s'
+              }}>
+                    <Checkbox label="By submitting this application, I declare that I have the right to live and work in the UK." required checked={formData.rightToWork} onChange={e => setFormData({
+                  ...formData,
+                  rightToWork: e.target.checked
                 })} />
                   </div>
 
